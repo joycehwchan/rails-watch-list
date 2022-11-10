@@ -1,0 +1,5 @@
+<div class="card">
+  <p><%= bookmark.movie.title %></p>
+  <p><%= bookmark.comment %></p>
+  <%= link_to "Delete Bookmark", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{bookmark.movie.title}?"} %>
+</div>

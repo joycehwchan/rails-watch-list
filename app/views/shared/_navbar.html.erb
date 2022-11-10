@@ -1,0 +1,10 @@
+<nav class="navbar sticky-top navbar-dark bg-dark">
+  <div class="container-fluid ">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <i class="fa-solid fa-film"></i> WatchList
+    <% end %>
+    <%= link_to new_list_path , class: 'float-end btn btn-sm btn-light' do%>
+      <i class="fa-solid fa-plus"></i> New List
+    <% end %>
+  </div>
+</nav>
