@@ -1,5 +1,7 @@
-<%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.association :movie %>
+<div class="form-max-width">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.association :movie, include_blank: false, collection: @movies %>
     <%= f.input :comment %>
-    <%= f.submit %>
-<% end %>
+    <%= f.submit 'Add Movie', class: 'black-btn block form-btn'%>
+  <% end %>
+</div>

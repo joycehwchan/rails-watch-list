@@ -1,3 +1,4 @@
-<h3>Add a movie</h3>
-
-<%= render 'bookmarks/form', list: @list, bookmark: @bookmark %>
+<div class="container mt-3">
+  <h3>Add a movie to <%= @list.name %></h3>
+  <%= render 'bookmarks/form', list: @list, bookmark: @bookmark %>
+</div>
