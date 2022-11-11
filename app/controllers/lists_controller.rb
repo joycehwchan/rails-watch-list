@@ -3,7 +3,7 @@ class ListsController < ApplicationController
 
   def index
     @list = List.new
-    @lists = List.all
+    @lists = List.order(name: :asc)
     # raise
   end
 
