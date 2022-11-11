@@ -3,7 +3,22 @@
   <h1><%= list.name %></h1>
   <p><%= "#{pluralize(list.movies.count ,"movie")} in this list." %></p>
   <div class="d-flex gap-3">
-    <%= link_to "Edit list", edit_list_path(list), class: 'black-btn' %>
+    <%# <%= link_to "Edit list", edit_list_path(list), class: 'black-btn' %>
+
+    <button type="button" class="black-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Edit List
+    </button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <%= render 'lists/form', list: list %>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <%= link_to "Delete list", list_path(list), class: 'black-btn', data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{list.name}?"} %>
   </div>
 </div>
