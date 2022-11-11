@@ -1,11 +1,12 @@
 <%= render 'lists/banner', list: @list %>
-<%#= link_to "Add Bookmark", new_list_bookmark_path(@list) %>
-<%= render "bookmarks/form", list: @list, bookmark: @bookmark %>
-
-<hr class="my-4">
+<%#= link_to "Add Bookmark", new_list_bookmark_path(@list) %>ßß
 
 <div class="cards">
   <% @list.bookmarks.each do |bookmark| %>
     <%= render 'bookmarks/card', bookmark: bookmark %>
   <% end %>
 </div>
+
+<hr class="my-4">
+<%= render "bookmarks/form", list: @list, bookmark: @bookmark %>
+<div class="mt-5"></div>
