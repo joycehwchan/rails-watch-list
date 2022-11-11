@@ -1,24 +1,36 @@
-# require 'open-uri'
-# Movie.destroy_all
-# List.destroy_all
+require 'open-uri'
+Movie.destroy_all
 
 # the Le Wagon copy of the API
-# url = 'http://tmdb.lewagon.com/movie/top_rated'
-# response = JSON.parse(URI.open(url).read)
+url = 'http://tmdb.lewagon.com/movie/top_rated'
+response = JSON.parse(URI.open(url).read)
 
-# response['results'].each do |movie_hash|
-#   Movie.create!(
-#     title: movie_hash['title'],
-#     overview: movie_hash['overview'],
-#     poster_url: "https://image.tmdb.org/t/p/w500#{movie_hash['poster_path']}",
-#     rating: movie_hash['vote_average']
-#   )
-# end
+response['results'].each do |movie_hash|
+  Movie.create!(
+    title: movie_hash['title'],
+    overview: movie_hash['overview'],
+    poster_url: "https://image.tmdb.org/t/p/w500#{movie_hash['poster_path']}",
+    rating: movie_hash['vote_average']
+  )
+end
 
+List.destroy_all
+List.create!(name: "Action")
+List.create!(name: "Animation")
+List.create!(name: "Comedy")
+List.create!(name: "Crime")
+List.create!(name: "Drama")
+List.create!(name: "Fantasy")
+List.create!(name: "Historical")
+List.create!(name: "Horror")
+List.create!(name: "Romance")
+List.create!(name: "Sci-fi")
+List.create!(name: "Thriller")
+List.create!(name: "Documentary")
 
 Bookmark.destroy_all
 
-100.times do
+120.times do
   Bookmark.create(
     comment: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
     movie: Movie.all.sample,
