@@ -1,8 +1,4 @@
-<div class="banner banner-list text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : 'https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ' %>)">
-  <h1><%= @list.name %></h1>
-  <p><%= "#{pluralize(@list.movies.count ,"movie")} in this list." %></p>
-  <%= link_to "Delete list", list_path(@list), class: 'white-btn', data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@list.name}?"} %>
-</div>
+<%= render 'lists/banner', list: @list %>
 <%#= link_to "Add Bookmark", new_list_bookmark_path(@list) %>
 <%= render "bookmarks/form", list: @list, bookmark: @bookmark %>
 
